@@ -1,0 +1,5 @@
+{
+  "name": "CommuLink",
+  "description": "A multi-tenant community portal for sharing member data, professions, and time-sensitive announcements.",
+  "requestFramePermissions": []
+}
