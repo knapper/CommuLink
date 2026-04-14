@@ -1,11 +1,16 @@
+/// <reference types="vite/client" />
 import { User, Announcement, Community } from '../types';
 
 // The API is now served by the same origin (Node server) or proxied in dev
-const API_BASE_URL = '/api';
 
 class ApiService {
+  static API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '' ;
+
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-    const url = `${API_BASE_URL}${endpoint}`;
+    if (!ApiService.API_BASE_URL) {
+      throw new Error('API_BASE_URL is not defined in environment variables');
+    }
+    const url = `${ApiService.API_BASE_URL}${endpoint}`;
     const headers = {
       'Content-Type': 'application/json',
       ...options.headers,

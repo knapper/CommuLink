@@ -21,7 +21,7 @@ app.use(express.json({ limit: '10mb' })); // Increased limit for base64 images
 // AWS Configuration
 // When running on EC2 with an IAM Role, credentials are auto-fetched.
 // When running locally, it looks at ~/.aws/credentials or env vars.
-const REGION = process.env.AWS_REGION || "us-east-1";
+const REGION = process.env.AWS_REGION || "us-east-2";
 const TABLE_NAME = process.env.TABLE_NAME || "CommuLinkData";
 
 const client = new DynamoDBClient({ region: REGION });
